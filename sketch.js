@@ -59,7 +59,6 @@ function draw() {
   if (gameState !== "Hungry") {
     feed.hide();
     addFood.hide();
-    dog.remove();
   } else {
     feed.show();
     addFood.show();
@@ -67,13 +66,13 @@ function draw() {
   }
 
   currentTime = hour();
-  if(currentTime === (lastFed + 1)) {
+  if (currentTime === (lastFed + 1)) {
     update("Playing");
     foodObj.garden();
-  } else if(currentTime === (lastFed + 2)) {
+  } else if (currentTime === (lastFed + 2)) {
     update("Sleeping");
     foodObj.bedroom();
-  } else if(currentTime > (lastFed + 2) && currentTime <=(lastFed + 4)) {
+  } else if (currentTime > (lastFed + 2) && currentTime <= (lastFed + 4)) {
     update("Hungry");
     foodObj.display();
   }
@@ -82,7 +81,7 @@ function draw() {
   textSize(15);
   if (lastFed >= 12) {
     text("Last Feed : " + lastFed % 12 + "PM", 350, 30);
-  } else if (lastFed = 0) {
+  } else if (lastFed == 0) {
     text("Last Feed : 12 AM", 350, 30);
   } else {
     text("Last Feed : " + lastFed + "AM", 350, 30);
